@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Flight Search";
+}
+
+@section Scripts {
+    <script src="~/Scripts/ViewModels/Flight/FlightSearch.js"></script>
+}
+
+<section id="FlightSearch">
+    <div class="row" style="margin:0;">
+        <form class="form-horizontal" id="FlightSearchForm">
+            <div class="col-sm-3">
+                <div class="form-group rm-margin">
+                    <input type="text" placeholder="Departure Airport" class="form-control" data-bind="value: DepartureAirport" 
+                           data-isRequired="true" data-RequiredMessage="Enter Departure airport code."
+                           data-isValidate="true" data-ValidateMessage="Enter valid departure airport code." data-ValidationType="specialcharacter" minlength="3" maxlength="3" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group rm-margin">
+                    <input type="text" placeholder="Arrival Airport" class="form-control" data-bind="value: ArrivalAirport" 
+                           data-isRequired="true" data-RequiredMessage="Enter Arrival airport code."
+                           data-isValidate="true" data-ValidateMessage="Enter valid arrival airport code." data-ValidationType="specialcharacter"  minlength="3" maxlength="3" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group rm-margin">
+                    <input type="date" id="DepartureDate" placeholder="Departure Date" class="form-control"
+                           data-role="datepicker" data-format="dd-MMM-yyyy" data-bind="value: DepartureDate"
+                           data-isRequired="true" data-RequiredMessage="Enter Departure Date."
+                           data-isValidate="true" data-ValidateMessage="Enter valid date." />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group rm-margin">
+                    <input type="date" id="ReturnDate" placeholder="Return Date" class="form-control"
+                           data-role="datepicker" data-format="dd-MMM-yyyy" data-bind="value: ReturnDate"
+                           data-isValidate="true" data-ValidateMessage="Enter valid date." />
+                </div>
+            </div>
+            <div class="col-sm-1 pull-right" style="width: auto;">
+                <button type="button" class="btn btn-primary" data-bind="click: SearchFlightClick"><i class="fa fa-plane"></i> Search Flight</button>
+                <button type="button" class="btn btn-default" data-bind="click: ClearFilterClick">Clear</button>
+            </div>
+        </form>
+    </div>   
+    <hr data-bind="invisible: IsRecordFound" />
+    <div class="row result-box" data-bind="css:{ result-box-auto: IsRecordFound}">
+        <div data-bind="invisible: IsRecordFound">No Flight Search Result Found.</div>
+        <div data-role="grid"
+             data-selectable="false"
+             data-scrollable="false"
+             data-sortable="false"
+             data-pageable="true"
+             data-filterable="false"
+             data-bind="source: FlightSearchData, visible: IsRecordFound"
+             data-row-template="FlightSearchDataTemplate"
+             data-columns="[
+                                { 'title': 'Logo', 'width': 60},
+                                { 'field': 'AirlineName', 'title': 'Airline name', 'width': 200 },
+                                { 'field': 'OutboundFlightsDuration', 'title': 'Outbound flight duration', 'width': 200},
+                                { 'field': 'InboundFlightsDuration', 'title': 'Inbound flight duration', 'width': 200},
+                                { 'field': 'TotalAmount', 'title': 'Amount', 'width': 100},
+                            ]"
+             style="height: auto;"></div>
+
+        <script id="FlightSearchDataTemplate" type="text/x-kendo-template">
+            <tr>
+                <td><img src="#: AirlineLogoAddress #" /></td>
+                <td>#: AirlineName #</td>
+                <td>#: OutboundFlightsDuration #</td>
+                <td>#: InboundFlightsDuration #</td>
+                <td><i class="fa fa-usd"></i> #: TotalAmount #</td>
+            </tr>
+        </script>
+    </div>
+</section>

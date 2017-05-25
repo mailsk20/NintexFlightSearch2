@@ -1,0 +1,97 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+footer {
+    margin-top: 10px;
+    width: 100%;
+}
+footer .container {
+    border-top: 1px solid #ccc;
+}
+footer p {
+    margin: 10px 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.navbar-inverse {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.form-horizontal .form-group {
+     margin: 10px 0; 
+}
+
+
+.form-group .error-asterisk {
+    color: #ff0000;
+    clear: both;
+    margin: 0 5px;
+}
+
+.form-group .error-message {
+    color: #dd4b39;
+    clear: both;
+    float: left;
+}
+
+.form-group .error-box {
+    border: solid 1px #dd4b39 !important;
+    box-shadow: none;
+}
+.form-control {
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+}
+
+.result-box {
+    height: 350px;
+    margin:0; 
+    margin-top: 10px;
+}
+
+.result-box-auto {
+    height: auto;
+}
+
+.loader-overrely {
+    width: 100%; 
+    height: 100%; 
+    background-color: #fff; 
+    opacity: 0.5; 
+    top: 0px; 
+    left: 0px; 
+    z-index: 11111; 
+    position: fixed; 
+    display:none;
+}
+.loader-image {
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    background: url('/../images/loading-image.gif') 50% 220px no-repeat; 
+    z-index: 11112;
+}
